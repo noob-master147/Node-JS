@@ -23,9 +23,12 @@
 }
 
 
-const validator = require('validator')
-const getNotes = require('./notes')
+// const validator = require('validator')
+// const getNotes = require('./notes')
 
-const message = getNotes()
-console.log(message)
-console.log(validator.isEmail('a@gmail.com'))
+// const message = getNotes()
+// console.log(message)
+// console.log(validator.isEmail('a@gmail.com'))
+
+const chalk = require('chalk')
+console.log(chalk.black.bgYellow.bold('Success!'))
