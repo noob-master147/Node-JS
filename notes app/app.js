@@ -1,9 +1,4 @@
-const fs = require('fs')
+//loading another js file in app.js
+require('./utils')
 
-fs.writeFileSync('notes.txt','My name is DK\n')
-
-//Challenge: Append a message to notes.js
-
-//Use appendFileSync to append the file
-
-fs.appendFileSync('notes.txt', 'This is the appended txt')
+console.log('Divyansh')
