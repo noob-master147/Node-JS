@@ -17,20 +17,53 @@ const getNotes = require('./notes')
 yargs.command({
     command: 'add',
     describe: 'Add a new note',
-    handler: function () {
-        console.log('Adding a new note')
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string',
+        },
+        
+        body: {
+            describe: 'Add the Text',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler: function (argv) {
+        console.log(`Title: ${argv.title}`)
+        console.log(`Body: ${argv.body}`)
     }
 
 })
 
-//create remove command
+//removing remove command
 yargs.command({
     command: 'remove',
-    describe: 'Remove a  note',
+    describe: 'Remove a Note',
     handler: function () {
         console.log('Removing a note')
     }
 })
 
+//listing the notes
+yargs.command({
+    command: 'list',
+    describe: 'List out the Notes.',
+    handler: function () {
+        console.log('Listing out all the notes')
+    }
+})
 
-console.log(yargs.argv)
+//read the notes
+yargs.command({
+    command: 'read',
+    describe: 'reading the notes',
+    handler: function () {
+        console.log('Reading a note')
+    }
+})
+
+
+
+yargs.parse()
