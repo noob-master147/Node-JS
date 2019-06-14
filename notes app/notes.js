@@ -1,14 +1,12 @@
 const fs = require('fs')
 const chalk = require('chalk')
-const getNotes = () => {
-  return 'Your notes are ...'
-}
 
 const addNote = (title, body) => {
   const notes = loadNotes()
-  const duplicateNotes = notes.filter((note) => note.title === title )
-
-  if (duplicateNotes.length === 0) {
+  // const duplicateNotes = notes.filter((note) => note.title === title )
+  const duplicateNote = notes.find((note)=> note.title === title)
+  
+  if (!duplicateNote) {
     notes.push({
     title: title,
     body: body,
@@ -56,7 +54,21 @@ const loadNotes = () => {
 
 const listNote = () => {
   const data = loadNotes()
-  data.forEach(note => console.log(note.title));
+  data.forEach(note => console.log(chalk.inverse.yellow.bold(note.title)));
+}
+
+const readNote = (title) => {
+  const data = loadNotes()
+  const reqNote = (data.find((note) => note.title === title))
+  if(reqNote){
+    console.log(chalk.inverse.bold.cyanBright(reqNote.title))
+    console.log(chalk.bold(reqNote.body))
+  } else {
+    console.log(chalk.bgWhite.red.bold.inverse(" Note does'nt exists! "))
+  }
+
+
+
 }
 
 {//challenge: Setup command and option 
@@ -78,8 +90,8 @@ const listNote = () => {
 
 
 module.exports = {
-  getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
   listNote: listNote,
+  readNote: readNote,
 }
