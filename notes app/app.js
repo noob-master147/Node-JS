@@ -3,16 +3,6 @@ const yargs = require('yargs')
 const notes = require('./notes') 
 const fs = require('fs')
 
-// if (command === 'add') {
-//     console.log('adding a note')
-// } else if(command === 'remove') {
-//     console.log('removing notes')
-// } else if(command === 'read') {
-//     console.log('reading notes')
-// }
-
-// add read remove list
-
 
 //create add command
 yargs.command({

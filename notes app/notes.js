@@ -4,11 +4,9 @@ const getNotes = function() {
   return 'Your notes are ...'
 }
 
-const addNote = function(title, body) {
+const addNote = (title, body) => {
   const notes = loadNotes()
-  const duplicateNotes = notes.filter(function(note) {
-    return note.title === title
-  })
+  const duplicateNotes = notes.filter((note) => note.title === title )
 
   if (duplicateNotes.length === 0) {
     notes.push({
@@ -23,11 +21,9 @@ const addNote = function(title, body) {
   saveNotes(notes)
 }
 
-const removeNote = function(title) {
+const removeNote = (title) => {
   let notes = loadNotes()
-  const check = notes.filter(function(note) {
-  return note.title !== title
-  })
+  const check = notes.filter((note) => note.title !== title)
   
   
 
@@ -44,12 +40,12 @@ const removeNote = function(title) {
   
 }
 
-const saveNotes = function(notes) {
+const saveNotes = (notes) => {
   const data = JSON.stringify(notes)
   fs.writeFileSync('notes.json',data)
 }
 
-const loadNotes = function() {
+const loadNotes = () => {
 
   try{
   const dataBuffer = fs.readFileSync('notes.json')
@@ -62,7 +58,7 @@ const loadNotes = function() {
 
 
 
-//challenge: Setup command and option 
+{//challenge: Setup command and option 
 
 /*
 1. Setup the remove command to take a required "--title" option
@@ -71,21 +67,7 @@ const loadNotes = function() {
 4. have removeNote log the title of the note to be removed
 5. test your work using: node app.js remove --title="blah-blah" 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

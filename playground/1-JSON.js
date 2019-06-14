@@ -10,7 +10,19 @@ const fs = require('fs')
 // fs.writeFileSync('JSON-1.json', bookJSON)
 
 
-const dataBuffer = fs.readFileSync('JSON-1.json').toString()
+// const dataBuffer = fs.readFileSync('1-json.json').toString()
 
-const data = JSON.parse(dataBuffer)
-console.log(data.title)
+// const data = JSON.parse(dataBuffer)
+// console.log(data.title)
+
+/**********************/
+//challenge
+
+const dataBuffer = fs.readFileSync('1-json.json')
+const data = dataBuffer.toString()
+const dataJSON = JSON.parse(data)
+
+dataJSON.name = 'Divyansh'
+dataJSON.age = 19
+const datastring = JSON.stringify(dataJSON)
+fs.writeFileSync('1-json.json',datastring)
