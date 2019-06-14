@@ -1,6 +1,6 @@
 const fs = require('fs')
 const chalk = require('chalk')
-const getNotes = function() {
+const getNotes = () => {
   return 'Your notes are ...'
 }
 
@@ -13,9 +13,11 @@ const addNote = (title, body) => {
     title: title,
     body: body,
     })
-    console.log('Note Added')
+    const message = chalk.green.inverse.bold(' Notes Added ')
+    console.log(message)
   } else {
-    console.log('Note Title Taken')
+    const message = chalk.red.inverse.bold(' Note Title taken ')
+    console.log(message)
   }
   
   saveNotes(notes)
@@ -25,8 +27,6 @@ const removeNote = (title) => {
   let notes = loadNotes()
   const check = notes.filter((note) => note.title !== title)
   
-  
-
   if(check.length === notes.length) {
     const message = chalk.red.inverse.bold(' Notes not found ')
     console.log(message)
@@ -34,10 +34,8 @@ const removeNote = (title) => {
   } else {
     const message = chalk.green.inverse.bold(' Notes Removed ')
     console.log(message)
-    saveNotes(check)
-    
+    saveNotes(check) 
   }
-  
 }
 
 const saveNotes = (notes) => {
@@ -56,7 +54,10 @@ const loadNotes = () => {
   }
 }
 
-
+const listNote = () => {
+  const data = loadNotes()
+  data.forEach(note => console.log(note.title));
+}
 
 {//challenge: Setup command and option 
 
@@ -80,5 +81,5 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
-
+  listNote: listNote,
 }
