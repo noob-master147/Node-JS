@@ -1,10 +1,9 @@
-// Generally the program is in synchronus mode
-// but it can be made async
+const request = require('request')
 
-console.log('starting')
+const  url = 'https://api.darksky.net/forecast/8cc1e6c21f1bb24f693856b227882375/28.7041,77.1025?units=si'
 
-setTimeout(()=>{
-    console.log('2 sec')
-}, 2000)
+request({ url: url, json: true }, (error, response) => {
+    console.log(response.body.currently)
+    console.log(response.body.currently.precipProbability)
 
-console.log('stopping')
+})
