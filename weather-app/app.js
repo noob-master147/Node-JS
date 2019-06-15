@@ -1,21 +1,37 @@
 const request = require('request')
 const geoCode = require('./utils/geocode')
 const getForcast = require('./utils/forcast')
+const yargs = require('yargs')
 
 
 
-geoCode('Lucknow', (error, location) => {
-    if (error) {
-        console.log('error:', error)
-    } else {
-        console.log('data:', location)
-        getForcast(location.longitude, location.latitude, (error, data) => {
+yargs.command({
+    command: 'forcast',
+    describe: 'Forcast of the given Location',
+    builder: {
+        location: {
+            describe: 'State the Location',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        geoCode(argv.location, (error, data) => {
             if (error) {
-                console.log('error:', error)
-            } else {
-                console.log('data:', data)
-            }
-    })
+                return console.log('error:', error)
+            } 
+            //if no error is present then
+            console.log('data:', data)
+            getForcast(data.longitude, data.latitude, (error, forcastData) => {
+                if (error) {
+                    return console.log('error:', error)
+                } 
+                //if no error is present then
+                console.log('data:', forcastData)
+            })
+        })
     }
-    
 })
+
+
+yargs.parse()
