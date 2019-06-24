@@ -1,3 +1,43 @@
-h1 {
-    color: grey;
+body{
+    color: rgb(29, 29, 29);
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+.main-content{
+    flex-grow: 1;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 1rem;
+    padding: 1rem 0; 
+}
+
+header {
+    margin: 1rem 0;
+    margin-bottom: 3rem !important;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+header a {
+    color: #888888;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.portrait  {
+    width: 300px;
+}
+
+
