@@ -41,3 +41,19 @@ header a {
 }
 
 
+input {
+    border: 1px solid #cccccc;
+    padding: .5rem;
+    /* border-radius: 1rem;  */
+
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: .5rem;
+    /* border-radius: 1rem; */
+    box-decoration-break: none;
+}
