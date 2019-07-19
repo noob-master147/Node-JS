@@ -5,7 +5,7 @@ const geoCode = require('./utils/geocode')
 const getForcast = require('./utils/forcast')
 
 const app = express()
-
+console.log('')
 //Defining constants for the path name
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')

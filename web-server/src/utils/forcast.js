@@ -10,8 +10,10 @@ const getForcast = (longitude, latitude, callback) => {
             callback(body.error,undefined)
         } else {
             callback(undefined, {
-                temperature:body.currently.temperature,
-                precipProb : body.currently.precipProbability
+                summary : body.daily.summary,
+                temperature : body.currently.temperature,
+                precipProb : body.currently.precipProbability*100,
+                body : body
             })
         }
     })

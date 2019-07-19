@@ -1,6 +1,4 @@
-console.log('client side java script')
-
-
+// client side java script
 
 const form = document.querySelector('form')
 const search = document.querySelector('input')
@@ -23,9 +21,9 @@ form.addEventListener('submit', (e) => {
                 msgOne.textContent = 'Unable to Fetch weather.' 
                 msgTwo.textContent = data.error 
             } else {
-                msgOne.textContent = 'Weather in Your Location is..'
+                msgOne.textContent = data.location + ' : ' + data.forcastData.summary
                 msgTwo.textContent = 'Temperature: ' + data.forcastData.temperature 
-                msgThree.textContent = 'Rainfall Prob: ' + data.forcastData.precipProb 
+                msgThree.textContent = 'Probability of Rainfall is : ' + data.forcastData.precipProb 
                 console.log(data.location)
                 console.log(data.forcastData)
             }
