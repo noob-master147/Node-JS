@@ -1,1 +1,5 @@
+# dependencies
+#correction whole folders are ignored like this
 node_modules/
+#important to ignore the package-lock.json
+package-lock.json
