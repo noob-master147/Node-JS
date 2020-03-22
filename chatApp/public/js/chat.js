@@ -8,8 +8,15 @@ const $messageForm = document.querySelector('#message-form')
 const $messageFormInput = $messageForm.querySelector('input')
 const $messageFormButton = $messageForm.querySelector('button')
 const $sendLocationButton = document.querySelector('#send-location')
+const $messages = document.querySelector('#messages')
+
+//Tempelates
+const messageTempelate = document.querySelector('#message-tempelate').innerHTML
+
 
 socket.on('message', (message) => {
+    const html = Mustache.render(messageTempelate, {message: message})
+    $messages.insertAdjacentHTML('beforeend', html)
     console.log(message)
 })
 
