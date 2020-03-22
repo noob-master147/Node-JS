@@ -11,9 +11,8 @@
     <div>
         <h2>Chat Application</h2>
 
-        <div id="messages">
-            
-        </div>
+        <div id="messages"></div>
+        <div id="location"></div>
 
         <form id="message-form">
             <input name="message" placeholder="Message" type="text">
@@ -24,6 +23,12 @@
         <script id="message-tempelate" type="text/html">
             <div>
                 <p>{{message}}</p>
+            </div>
+        </script>
+
+        <script type="text/html" id="location-tempelate">
+            <div>
+                <p><a href="{{url}}" target="_blank">My Location</a></p>
             </div>
         </script>
     
